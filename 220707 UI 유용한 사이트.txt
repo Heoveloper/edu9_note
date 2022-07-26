@@ -1,0 +1,21 @@
+UI 유용한 사이트
+	1. 웹디자인 추세	
+		https://dribbble.com/
+	
+	2. 색상이 고민될 때
+		https://flatuicolors.com/
+		https://material.io	(컬러 툴)
+		https://www.color-hex.com/
+		https://mycolor.space/
+		
+	3. 이미지/동영상
+		https://pixabay.com/
+		
+	4. 아이콘
+		https://fontawesome.com/
+	
+	5. 폰트
+		https://fonts.google.com/
+		
+	6. 반응형 웹페이지 예시
+		https://mediaqueri.es/

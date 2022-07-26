@@ -1,0 +1,25 @@
+class 구조
+
+개념 {
+	명사, (속성, 특성, 데이터, 정보..)
+	동사, (행위, 동작, 서비스..)
+}
+
+class 개념 {
+	멤버 필드;
+	
+	생성자 메소드;		=>	new 개념();
+	
+	멤버 메소드;
+}
+─
+접근 제한자(Access modifier)
+	: 식별자(필드, 메소드, 클래스)의 가시범위
+1. public		: 어디서든 접근 가능
+3. protected	: 동일 패키지 및 자식클래스에서만 접근 가능
+2. default(접근 제한자를 명시하지 않는 경우): 동일 패키지면 접근 가능
+4. private		: 동일 클래스 내에서만 접근 가능
+
+public > protected > default > private
+
+모듈(module) > 패키지(package) > 클래스(class)

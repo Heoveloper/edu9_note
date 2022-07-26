@@ -1,0 +1,10 @@
+시퀀스: 중복되지 않은 연속된 값을 자동 채변해주는 기능
+
+문법
+create sequence [시퀀스명]
+start with [시작숫자]
+increment by [증감숫자]
+minvalue [최소값]
+maxvalue [최대값]
+cycle | nocycle
+cache | nocache: 메모리에 시퀀스 값을 미리 할당
