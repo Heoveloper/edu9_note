@@ -1,0 +1,18 @@
+const person = {name: '홍길동', age: 30};
+undefined
+const {name, age} = person;
+undefined
+name;
+'홍길동'
+age;
+30
+const arr = [1, 2, 3];
+undefined
+const [x, y, z] = arr;
+undefined
+x
+1
+y
+2
+z
+3
