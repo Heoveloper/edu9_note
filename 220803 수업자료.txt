@@ -1,0 +1,15 @@
+webstandard/test/test3.html
+webstandard/test/test4.html
+webstandard/test/test4-1.html
+에서 적용한 사항들↓
+1. 이미지 넓이를 부모요소에 맞추기
+2. 뷰포트 줄 때 flex item 폭 고정
+3. 이미지 위에 텍스트 올리는 방법
+4. 가상요소(::after, ::before)
+5. attr(): 엘리먼트의 값을 읽어와서 css값으로 활용
+└ 공통값으로 주고 싶을 때 사용하면 유용할 듯
+6. 그라데이션: 배경색을 주어 폰트의 가독성 향상
+7. transition: 속성명 시간 => 애니메이션 효과
+8. transition-delay: 지연시간
+9. opacity: 0~1 => 투명도
+10. flex
