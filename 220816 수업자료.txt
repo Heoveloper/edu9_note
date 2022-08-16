@@ -1,0 +1,2 @@
+JSON.parse(js포맷문자열): js객체
+JSON.stringify(js객체): json포맷문자열
