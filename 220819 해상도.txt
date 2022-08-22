@@ -1,0 +1,13 @@
+KH PC
+1858px 116em
+-1920px
+-1080px
+-1920px+
+-1080px+
+
+MY PHONE
+412px 26em
+-412px
+-869px
+-412px+
+-800px+
