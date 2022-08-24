@@ -1,4 +1,4 @@
-1. expo init 생성폴더명
-└ powershell에서 폴더만들기
-2. 생성폴더 디렉토리에서(cd 디렉토리 위치) code .(현재 위치)해서 VSC실행
-3. 열린 VSC에서 터미널에 expo start
+1. powershell > expo init 생성폴더명
+2. 생성폴더 디렉토리로 이동 (cd 디렉토리 위치)
+3. `code .` 명령어로 VSCODE 실행
+4. VSCODE new terminal에서 expo start (+ npm install (--force))
