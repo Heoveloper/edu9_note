@@ -1,0 +1,123 @@
+--리셋
+DROP SEQUENCE mem_num;
+DROP TABLE Member;
+--DROP TABLE withdrawal_member;
+
+--회원번호 시퀀스
+CREATE SEQUENCE mem_num
+    INCREMENT BY 1
+    START WITH 1
+    MINVALUE 1
+    NOMAXVALUE
+    NOCYCLE
+    NOCACHE;
+
+--회원정보 테이블
+CREATE TABLE Member (
+mem_number NUMBER(6),
+mem_type VARCHAR2(15),
+mem_id VARCHAR2(30),
+mem_password VARCHAR2(18),
+mem_name VARCHAR2(18),
+mem_nickname VARCHAR2(18),
+mem_email VARCHAR2(30),
+mem_businessnumber NUMBER(10),
+mem_food_category VARCHAR2(18),
+mem_store_name VARCHAR2(60),
+mem_store_phonenumber NUMBER(15),
+mem_location VARCHAR2(150),
+mem_introduce VARCHAR2(210),
+mem_sns VARCHAR2(90),
+mem_regtime DATE,
+mem_lock_expiration DATE,
+mem_admin VARCHAR2(3)
+);
+
+--회원정보 테이블 제약조건
+--/PRIMARY KEY/
+ALTER TABLE Member
+ADD CONSTRAINT Member_pk
+PRIMARY KEY (mem_number);
+
+--/FOREIGN KEY/
+--예시
+--ALTER TABLE Reservation
+--ADD CONSTRAINT Reservation_fk2 FOREIGN KEY (theater_no, cinema_no)
+--REFERENCES Cinema(theater_no, cinema_no);
+
+--/UNIQUE/
+ALTER TABLE Member
+ADD CONSTRAINT Member_mem_businessnumber_un
+UNIQUE (mem_businessnumber);
+
+--/NOT NULL/
+ALTER TABLE Member
+MODIFY mem_type CONSTRAINT Member_mem_type_nn NOT NULL;
+ALTER TABLE Member
+MODIFY mem_id CONSTRAINT Member_mem_id_nn NOT NULL;
+
+--/DEFAULT/
+ALTER TABLE Member
+MODIFY mem_admin VARCHAR2(3)
+DEFAULT 'n';
+
+--/CHECK/
+--예시
+--ALTER TABLE Cinema
+--ADD CONSTRAINT Cinema_price_ch CHECK (price <= 20000);
+--ALTER TABLE Cinema
+--MODIFY cinema_no CONSTRAINT Cinema_cinema_no_ch
+--CHECK (cinema_no BETWEEN 1 AND 10);
+
+
+--회원등록 쿼리 (고객회원 샘플데이터)
+--INSERT INTO Member
+--VALUES (mem_num.nextval, 'customer', 'wnsgur123', '@pwwnsgur123', '허준혁', '준별', 'altruism_tap@naver.com',
+--NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '');
+
+--회원등록 쿼리 (점주회원 샘플데이터)
+INSERT INTO Member (mem_number, mem_type, mem_id, mem_password, mem_name, mem_nickname, mem_email,
+mem_businessnumber, mem_food_category, mem_store_name, mem_store_phonenumber, mem_location, mem_introduce,
+mem_sns, mem_regtime, mem_lock_expiration)
+VALUES (mem_num.nextval, 'customer', 'wnsgur123', '@pwwnsgur123', '허준혁', '준별', 'altruism_tap@naver.com',
+NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+--회원조회 쿼리
+SELECT mem_id as 허준혁님의_아이디
+FROM Member
+WHERE mem_name='허준혁';
+
+--회원수정 쿼리
+SELECT * FROM member;
+UPDATE Member
+SET mem_nickname='허준'
+WHERE mem_id='wnsgur123';
+
+
+--탈퇴회원정보 테이블
+--CREATE TABLE withdrawal_member (
+--mem_number NUMBER(20) PRIMARY KEY,
+--mem_type VARCHAR2(20),
+--mem_id VARCHAR2(20),
+--mem_password VARCHAR2(20),
+--mem_name VARCHAR2(20),
+--mem_nickname VARCHAR2(20),
+--mem_email VARCHAR2(30),
+--mem_businessnumber NUMBER(20),
+--mem_food_category VARCHAR2(20),
+--mem_store_name VARCHAR2(50),
+--mem_store_phonenumber NUMBER(20),
+--mem_location VARCHAR2(100),
+--mem_introduce VARCHAR2(100),
+--mem_sns VARCHAR2(100),
+--mem_regtime DATE,
+--mem_admin VARCHAR2(20)
+--);
+
+--샘플데이터 in 탈퇴회원정보 테이블
+--INSERT INTO withdrawal_member (mem_number) VALUES (2);
+
+
+--테이블 전체보기 (회원정보, 탈퇴회원정보)
+SELECT * FROM member;
+--SELECT * FROM withdrawal_member;

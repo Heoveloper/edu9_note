@@ -1,0 +1,28 @@
+1. PRIMARY KEY
+NULL, 중복 불가능
+EX) VALUE3 VARCHAR2(10) PRIMARY KEY
+
+2. FOREIGN KEY
+NULL 가능, 타 테이블의 PRIMARY KEY여야하고 해당 테이블의 컬럼에 삽입되지 않은 값은 사용 불가
+EX) VALUE4 VARCHAR2(10) REFERENCES 참조할_테이블(참조할_테이블의_PRIMARY_KEY)
+
+3. UNIQUE
+NULL은 허용하나 중복은 불가능함
+EX) VALUE2 VARCHAR2(10) UNIQUE
+
+4. NOT NULL
+해당 컬럼에 NULL값(값을 넣지 않거나 공백처럼 값이 없는 경우)이 들어오지 못하게 함
+EX) VALUE1 VARCHAR2(10) NOT NULL
+
+5. DEFAULT
+NULL 값이 들어올 시 지정된 값을 삽입함
+EX) VALUE7 VARCHAR2(10) DEFAULT '홍길동'
+
+6. CHECK
+특정 범위 혹은 특정 값만 들어올 수 있게 함
+EX) VALUE5 VARCHAR2(10) CHECK(VALUE5 BETWEEN 1 AND 10)
+EX) VALUE6 VARCHAR2(10) CHECK(VALUE6 IN ('A', 'B'))
+
+[ALTER 문으로 제약조건 생성하기]
+ALTER TABLE [테이블명] ADD CONSTRAINT [제약조건명] [제약조건]([컬럼명]);
+예) ALTER TABLE CUSTOMERS ADD CONSTRAINT PK_CUSTOMERS PRIMARY KEY (customer_id);
