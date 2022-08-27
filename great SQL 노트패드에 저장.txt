@@ -47,6 +47,10 @@ PRIMARY KEY (mem_number);
 
 --/UNIQUE/
 ALTER TABLE Member
+ADD CONSTRAINT Member_mem_id_un
+UNIQUE (mem_id);
+
+ALTER TABLE Member
 ADD CONSTRAINT Member_mem_businessnumber_un
 UNIQUE (mem_businessnumber);
 
