@@ -1,7 +1,7 @@
 --리셋
 DROP SEQUENCE mem_num;
 DROP TABLE Member;
---DROP TABLE withdrawal_member;
+DROP TABLE Withdrawal_member;
 
 --회원번호 시퀀스
 CREATE SEQUENCE mem_num
@@ -11,6 +11,73 @@ CREATE SEQUENCE mem_num
     NOMAXVALUE
     NOCYCLE
     NOCACHE;
+    
+--탈퇴회원정보 테이블
+CREATE TABLE Withdrawal_member (
+mem_number NUMBER(6),
+mem_type VARCHAR2(15),
+mem_id VARCHAR2(30),
+mem_password VARCHAR2(18),
+mem_name VARCHAR2(18),
+mem_nickname VARCHAR2(18),
+mem_email VARCHAR2(30),
+mem_businessnumber NUMBER(10),
+mem_food_category VARCHAR2(18),
+mem_store_name VARCHAR2(60),
+mem_store_phonenumber NUMBER(15),
+mem_location VARCHAR2(150),
+mem_introduce VARCHAR2(210),
+mem_sns VARCHAR2(90),
+mem_regtime DATE,
+mem_lock_expiration DATE,
+mem_admin VARCHAR2(3)
+);
+
+--탈퇴회원정보 테이블 제약조건
+--/PRIMARY KEY/
+ALTER TABLE Withdrawal_member
+ADD CONSTRAINT Withdrawal_member_pk
+PRIMARY KEY (mem_number);
+
+--/UNIQUE/
+ALTER TABLE Withdrawal_member
+ADD CONSTRAINT Withdrawal_member_mem_id_un
+UNIQUE (mem_id);
+
+ALTER TABLE Withdrawal_member
+ADD CONSTRAINT Withdrawal_member_mem_nickname_un
+UNIQUE (mem_nickname);
+
+ALTER TABLE Withdrawal_member
+ADD CONSTRAINT Withdrawal_member_mem_email_un
+UNIQUE (mem_email);
+
+ALTER TABLE Withdrawal_member
+ADD CONSTRAINT Withdrawal_member_mem_businessnumber_un
+UNIQUE (mem_businessnumber);
+
+ALTER TABLE Withdrawal_member
+ADD CONSTRAINT Withdrawal_member_mem_location_un
+UNIQUE (mem_location);
+
+--/NOT NULL/
+ALTER TABLE Withdrawal_member
+MODIFY mem_number CONSTRAINT Withdrawal_member_mem_number_nn NOT NULL;
+ALTER TABLE Withdrawal_member
+MODIFY mem_type CONSTRAINT Withdrawal_member_mem_type_nn NOT NULL;
+ALTER TABLE Withdrawal_member
+MODIFY mem_id CONSTRAINT Withdrawal_member_mem_id_nn NOT NULL;
+ALTER TABLE Withdrawal_member
+MODIFY mem_password CONSTRAINT Withdrawal_member_mem_password_nn NOT NULL;
+ALTER TABLE Withdrawal_member
+MODIFY mem_name CONSTRAINT Withdrawal_member_mem_name_nn NOT NULL;
+ALTER TABLE Withdrawal_member
+MODIFY mem_nickname CONSTRAINT Withdrawal_member_mem_nickname_nn NOT NULL;
+ALTER TABLE Withdrawal_member
+MODIFY mem_email CONSTRAINT Withdrawal_member_mem_email_nn NOT NULL;
+ALTER TABLE Withdrawal_member
+MODIFY mem_regtime CONSTRAINT Withdrawal_member_mem_regtime_nn NOT NULL;
+
 
 --회원정보 테이블
 CREATE TABLE Member (
@@ -51,16 +118,48 @@ ADD CONSTRAINT Member_mem_id_un
 UNIQUE (mem_id);
 
 ALTER TABLE Member
+ADD CONSTRAINT Member_mem_nickname_un
+UNIQUE (mem_nickname);
+
+ALTER TABLE Member
+ADD CONSTRAINT Member_mem_email_un
+UNIQUE (mem_email);
+
+ALTER TABLE Member
 ADD CONSTRAINT Member_mem_businessnumber_un
 UNIQUE (mem_businessnumber);
 
+ALTER TABLE Member
+ADD CONSTRAINT Member_mem_location_un
+UNIQUE (mem_location);
+
 --/NOT NULL/
+ALTER TABLE Member
+MODIFY mem_number CONSTRAINT Member_mem_number_nn NOT NULL;
 ALTER TABLE Member
 MODIFY mem_type CONSTRAINT Member_mem_type_nn NOT NULL;
 ALTER TABLE Member
 MODIFY mem_id CONSTRAINT Member_mem_id_nn NOT NULL;
+ALTER TABLE Member
+MODIFY mem_password CONSTRAINT Member_mem_password_nn NOT NULL;
+ALTER TABLE Member
+MODIFY mem_name CONSTRAINT Member_mem_name_nn NOT NULL;
+ALTER TABLE Member
+MODIFY mem_nickname CONSTRAINT Member_mem_nickname_nn NOT NULL;
+ALTER TABLE Member
+MODIFY mem_email CONSTRAINT Member_mem_email_nn NOT NULL;
+ALTER TABLE Member
+MODIFY mem_regtime CONSTRAINT Member_mem_regtime_nn NOT NULL;
 
 --/DEFAULT/
+ALTER TABLE Member
+MODIFY mem_number NUMBER(6)
+DEFAULT mem_num.nextval;
+
+ALTER TABLE Member
+MODIFY mem_regtime DATE
+DEFAULT sysdate;
+
 ALTER TABLE Member
 MODIFY mem_admin VARCHAR2(3)
 DEFAULT 'n';
@@ -75,53 +174,116 @@ DEFAULT 'n';
 
 
 --회원등록 쿼리 (고객회원 샘플데이터)
---INSERT INTO Member
---VALUES (mem_num.nextval, 'customer', 'wnsgur123', '@pwwnsgur123', '허준혁', '준별', 'altruism_tap@naver.com',
---NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '');
+INSERT INTO Member (mem_type, mem_id, mem_password, mem_name, mem_nickname, mem_email,
+mem_businessnumber, mem_food_category, mem_store_name, mem_store_phonenumber, mem_location, mem_introduce,
+mem_sns)
+VALUES ('customer', 'wldus123', '@pwwldus123', '김지연', '지별', 'wldus123@gmail.com',
+NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Member (mem_type, mem_id, mem_password, mem_name, mem_nickname, mem_email,
+mem_businessnumber, mem_food_category, mem_store_name, mem_store_phonenumber, mem_location, mem_introduce,
+mem_sns)
+VALUES ('customer', 'wlsdnr123', '@pwwlsdnr123', '김진욱', '진별', 'wlsdnr123@naver.com',
+NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Member (mem_type, mem_id, mem_password, mem_name, mem_nickname, mem_email,
+mem_businessnumber, mem_food_category, mem_store_name, mem_store_phonenumber, mem_location, mem_introduce,
+mem_sns)
+VALUES ('customer', 'tjdqls123', '@pwtjdqls123', '배성빈', '성별', 'tjdqls123@gmail.com',
+NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Member (mem_type, mem_id, mem_password, mem_name, mem_nickname, mem_email,
+mem_businessnumber, mem_food_category, mem_store_name, mem_store_phonenumber, mem_location, mem_introduce,
+mem_sns)
+VALUES ('customer', 'rldnjs123', '@pwrldnjs123', '이기원', '기별', 'rldnjs123@naver.com',
+NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Member (mem_type, mem_id, mem_password, mem_name, mem_nickname, mem_email,
+mem_businessnumber, mem_food_category, mem_store_name, mem_store_phonenumber, mem_location, mem_introduce,
+mem_sns)
+VALUES ('customer', 'wnsgur123', '@pwwnsgur123', '허준혁', '준별', 'wnsgur123@gmail.com',
+NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 --회원등록 쿼리 (점주회원 샘플데이터)
-INSERT INTO Member (mem_number, mem_type, mem_id, mem_password, mem_name, mem_nickname, mem_email,
+INSERT INTO Member (mem_type, mem_id, mem_password, mem_name, mem_nickname, mem_email,
 mem_businessnumber, mem_food_category, mem_store_name, mem_store_phonenumber, mem_location, mem_introduce,
-mem_sns, mem_regtime, mem_lock_expiration)
-VALUES (mem_num.nextval, 'customer', 'wnsgur123', '@pwwnsgur123', '허준혁', '준별', 'altruism_tap@naver.com',
-NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+mem_sns)
+VALUES ('owner', 'rnrqkq123', '@pwrnrqkq123', '김점주', '국밥마스터', 'rnrqkq123@naver.com',
+1112233333, '한식', '싸다구돼지국밥', 0521112222, '남구', '잘 부탁합니데이~', NULL);
 
---회원조회 쿼리
-SELECT mem_id as 허준혁님의_아이디
+INSERT INTO Member (mem_type, mem_id, mem_password, mem_name, mem_nickname, mem_email,
+mem_businessnumber, mem_food_category, mem_store_name, mem_store_phonenumber, mem_location, mem_introduce,
+mem_sns)
+VALUES ('owner', 'tmtl123', '@pwtmtl123', '이점주', '스시마스터', 'tmtl123@gmail.com',
+1112255555, '일식', '그레이트스시', 0521113333, '동구', '참치 대뱃살 맛있어요!', 'https://www.instagram.com/greatsushi/');
+
+INSERT INTO Member (mem_type, mem_id, mem_password, mem_name, mem_nickname, mem_email,
+mem_businessnumber, mem_food_category, mem_store_name, mem_store_phonenumber, mem_location, mem_introduce,
+mem_sns)
+VALUES ('owner', 'wkaqhd123', '@pwwkaqhd123', '왕점주', '짬뽕마스터', 'wkaqhd123@naver.com',
+1112277777, '중식', '삼룡각', 0521114444, '중구', '얼큰한 짬뽕이 주메뉴입니다.', NULL);
+
+INSERT INTO Member (mem_type, mem_id, mem_password, mem_name, mem_nickname, mem_email,
+mem_businessnumber, mem_food_category, mem_store_name, mem_store_phonenumber, mem_location, mem_introduce,
+mem_sns)
+VALUES ('owner', 'akzkfhd123', '@pwakzkfhd123', '최점주', '디저트마스터', 'akzkfhd123@gmail.com',
+1112299999, '카페/디저트', '한입마카롱', 0521115555, '북구', '우리 가게만의 특별한 뚱카롱 있습니다^^', 'https://www.instagram.com/onedessert/');
+
+--회원조회 쿼리 (이름으로 아이디 찾기)
+SELECT mem_id "찾은 아이디"
 FROM Member
 WHERE mem_name='허준혁';
 
+--회원조회 쿼리 (아이디로 이름 찾기)
+SELECT mem_name "찾은 이름"
+FROM Member
+WHERE mem_id='akzkfhd123';
+
 --회원수정 쿼리
-SELECT * FROM member;
 UPDATE Member
 SET mem_nickname='허준'
 WHERE mem_id='wnsgur123';
+--수정 확인
+SELECT *
+FROM Member;
+
+--회원탈퇴 쿼리
+--회원정보 테이블에서 탈퇴회원정보 테이블로 데이터 이동
+INSERT INTO Withdrawal_member
+SELECT *
+FROM Member
+WHERE mem_id='wkaqhd123';
+INSERT INTO Withdrawal_member
+SELECT *
+FROM Member
+WHERE mem_id='akzkfhd123';
+--회원정보 테이블에 남아있는 데이터 삭제
+DELETE
+FROM Member
+WHERE mem_id='wkaqhd123';
+DELETE
+FROM Member
+WHERE mem_id='akzkfhd123';
+
+--회원번호 시퀀스 작동확인차 데이터 추가
+INSERT INTO Member (mem_type, mem_id, mem_password, mem_name, mem_nickname, mem_email,
+mem_businessnumber, mem_food_category, mem_store_name, mem_store_phonenumber, mem_location, mem_introduce,
+mem_sns)
+VALUES ('owner', 'qpxmska123', '@pwqpxmska123', '박점주', '쌀국수마스터', 'qpxmska123@gmail.com',
+1113311111, '아시안식', '후루룩쌀국수', 0521116666, '울주군', '쌀국수가 최고로 맛있고 분짜도 맛있어요~', 'https://www.instagram.com/bestasiannoodle/');
 
 
---탈퇴회원정보 테이블
---CREATE TABLE withdrawal_member (
---mem_number NUMBER(20) PRIMARY KEY,
---mem_type VARCHAR2(20),
---mem_id VARCHAR2(20),
---mem_password VARCHAR2(20),
---mem_name VARCHAR2(20),
---mem_nickname VARCHAR2(20),
---mem_email VARCHAR2(30),
---mem_businessnumber NUMBER(20),
---mem_food_category VARCHAR2(20),
---mem_store_name VARCHAR2(50),
---mem_store_phonenumber NUMBER(20),
---mem_location VARCHAR2(100),
---mem_introduce VARCHAR2(100),
---mem_sns VARCHAR2(100),
---mem_regtime DATE,
---mem_admin VARCHAR2(20)
---);
-
---샘플데이터 in 탈퇴회원정보 테이블
---INSERT INTO withdrawal_member (mem_number) VALUES (2);
-
-
---테이블 전체보기 (회원정보, 탈퇴회원정보)
-SELECT * FROM member;
---SELECT * FROM withdrawal_member;
+--탈퇴회원정보 테이블 조회
+SELECT *
+FROM Withdrawal_member;
+--회원정보 테이블 조회
+SELECT *
+FROM Member;
+--고객회원 목록 조회
+SELECT *
+FROM Member
+WHERE mem_type='customer';
+--점주회원 목록 조회
+SELECT *
+FROM Member
+WHERE mem_type='owner';
