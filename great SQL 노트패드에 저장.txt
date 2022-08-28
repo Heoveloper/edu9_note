@@ -230,22 +230,34 @@ VALUES ('owner', 'akzkfhd123', '@pwakzkfhd123', '최점주', '디저트마스터
 1112299999, '카페/디저트', '한입마카롱', 0521115555, '북구', '우리 가게만의 특별한 뚱카롱 있습니다^^', 'https://www.instagram.com/onedessert/');
 
 --회원조회 쿼리 (이름으로 아이디 찾기)
-SELECT mem_id "찾은 아이디"
+SELECT mem_id "이름으로 조회한 아이디"
 FROM Member
 WHERE mem_name='허준혁';
 
 --회원조회 쿼리 (아이디로 이름 찾기)
-SELECT mem_name "찾은 이름"
+SELECT mem_name "아이디로 조회한 이름"
 FROM Member
 WHERE mem_id='akzkfhd123';
+
+--회원인증 쿼리
+SELECT count(*) "1이면 우리 회원"
+FROM Member
+WHERE mem_id = 'wnsgur123'
+AND mem_password='@pwwnsgur123';
+
+--회원테이블에 회원 존재 유무
+SELECT count(*) "1이면 회원목록에 존재"
+FROM Member
+WHERE mem_id = 'wnsgur123';
 
 --회원수정 쿼리
 UPDATE Member
 SET mem_nickname='허준'
 WHERE mem_id='wnsgur123';
 --수정 확인
-SELECT *
-FROM Member;
+SELECT mem_nickname "wnsgur123의 별명"
+FROM Member
+WHERE mem_id='wnsgur123';
 
 --회원탈퇴 쿼리
 --회원정보 테이블에서 탈퇴회원정보 테이블로 데이터 이동
@@ -265,12 +277,28 @@ DELETE
 FROM Member
 WHERE mem_id='akzkfhd123';
 
---회원번호 시퀀스 작동확인차 데이터 추가
+--회원번호 시퀀스 확인차 회원정보 테이블에 데이터 추가
 INSERT INTO Member (mem_type, mem_id, mem_password, mem_name, mem_nickname, mem_email,
 mem_businessnumber, mem_food_category, mem_store_name, mem_store_phonenumber, mem_location, mem_introduce,
 mem_sns)
-VALUES ('owner', 'qpxmska123', '@pwqpxmska123', '박점주', '쌀국수마스터', 'qpxmska123@gmail.com',
+VALUES ('owner', 'qpxmska123', '@pwqpxmska123', '박점주', '쌀국수마스터', 'qpxmska123@naver.com',
 1113311111, '아시안식', '후루룩쌀국수', 0521116666, '울주군', '쌀국수가 최고로 맛있고 분짜도 맛있어요~', 'https://www.instagram.com/bestasiannoodle/');
+
+--아이디 찾기
+SELECT mem_id "찾기 완료한 아이디"
+FROM Member
+WHERE mem_name='허준혁'
+AND mem_email='wnsgur123@gmail.com';
+
+--비밀번호 찾기
+SELECT mem_password "찾기 완료한 비밀번호"
+FROM Member
+WHERE mem_name='허준혁'
+AND mem_email='wnsgur123@gmail.com';
+--비밀번호 재설정
+UPDATE Member
+SET mem_password='@pwwnsgur777'
+WHERE mem_id='wnsgur123';
 
 
 --탈퇴회원정보 테이블 조회
