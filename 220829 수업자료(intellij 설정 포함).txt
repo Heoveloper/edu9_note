@@ -33,3 +33,20 @@
 					
 4. http://localhost:9080 (폴더명Application Run후에 띄워야 출력)
 	hello world 출력하기
+	
+5. 데이터 요청(myapp1 기준)
+						   ?쿼리스트링
+	http://localhost:9080/x?name=gildong@age=30
+	
+	payload 전달 방식
+	1. 쿼리 파라미터	(요청메세지 헤더)
+    http://localhost:9080/y?op1=10&op2=20
+	2. url 경로에 포함	(요청메세지 헤더)
+	http://localhost:9080/y/10/20
+	3. 요청메세지 바디에 포함	(요청메세지 바디)
+	
+	서버 응답
+	1. html(view+data)
+	2. json(data)
+	
+	
