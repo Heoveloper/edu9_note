@@ -49,4 +49,8 @@
 	1. html(view+data)
 	2. json(data)
 	
+
+- form 태그 안의 button 태그는 자동으로 submit 타입
+- form action의 디폴트값은 현재 요청 url
+	
 	
