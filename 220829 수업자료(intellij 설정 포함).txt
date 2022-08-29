@@ -1,0 +1,16 @@
+1. 프로젝트 생성
+2.	WAS서버 설정
+	PORT 변경
+	DB 연결
+3. 인텔리제이 환경설정
+	settings >
+		encoding > 전부 UTF-8
+		gradle > intellij로 변경
+		compiler > build project automatically 체크
+		annotation processors > 최상단 enable- 체크
+		auto import > Add unambiguous imports on the fly 체크
+					> Optimize imports on the fly 체크
+		advanced settings > allow auto-make to start- 체크
+		code style > java, html > 탭사이즈, 들여쓰기 길이 설정
+4. http://localhost:9080
+	hello world 출력하기

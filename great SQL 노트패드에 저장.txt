@@ -21,10 +21,10 @@ mem_password VARCHAR2(18),
 mem_name VARCHAR2(18),
 mem_nickname VARCHAR2(18),
 mem_email VARCHAR2(30),
-mem_businessnumber NUMBER(10),
+mem_businessnumber VARCHAR2(10),
 mem_food_category VARCHAR2(18),
 mem_store_name VARCHAR2(60),
-mem_store_phonenumber NUMBER(15),
+mem_store_phonenumber VARCHAR2(15),
 mem_location VARCHAR2(150),
 mem_introduce VARCHAR2(210),
 mem_sns VARCHAR2(90),
@@ -88,10 +88,10 @@ mem_password VARCHAR2(18),
 mem_name VARCHAR2(18),
 mem_nickname VARCHAR2(18),
 mem_email VARCHAR2(30),
-mem_businessnumber NUMBER(10),
+mem_businessnumber VARCHAR2(10),
 mem_food_category VARCHAR2(18),
 mem_store_name VARCHAR2(60),
-mem_store_phonenumber NUMBER(15),
+mem_store_phonenumber VARCHAR2(15),
 mem_location VARCHAR2(150),
 mem_introduce VARCHAR2(210),
 mem_sns VARCHAR2(90),
@@ -209,25 +209,25 @@ INSERT INTO Member (mem_type, mem_id, mem_password, mem_name, mem_nickname, mem_
 mem_businessnumber, mem_food_category, mem_store_name, mem_store_phonenumber, mem_location, mem_introduce,
 mem_sns)
 VALUES ('owner', 'rnrqkq123', '@pwrnrqkq123', '김점주', '국밥마스터', 'rnrqkq123@naver.com',
-1112233333, '한식', '싸다구돼지국밥', 0521112222, '남구', '잘 부탁합니데이~', NULL);
+'1112233333', '한식', '싸다구돼지국밥', '0521112222', '남구', '잘 부탁합니데이~', NULL);
 
 INSERT INTO Member (mem_type, mem_id, mem_password, mem_name, mem_nickname, mem_email,
 mem_businessnumber, mem_food_category, mem_store_name, mem_store_phonenumber, mem_location, mem_introduce,
 mem_sns)
 VALUES ('owner', 'tmtl123', '@pwtmtl123', '이점주', '스시마스터', 'tmtl123@gmail.com',
-1112255555, '일식', '그레이트스시', 0521113333, '동구', '참치 대뱃살 맛있어요!', 'https://www.instagram.com/greatsushi/');
+'1112255555', '일식', '그레이트스시', '0521113333', '동구', '참치 대뱃살 맛있어요!', 'https://www.instagram.com/greatsushi/');
 
 INSERT INTO Member (mem_type, mem_id, mem_password, mem_name, mem_nickname, mem_email,
 mem_businessnumber, mem_food_category, mem_store_name, mem_store_phonenumber, mem_location, mem_introduce,
 mem_sns)
 VALUES ('owner', 'wkaqhd123', '@pwwkaqhd123', '왕점주', '짬뽕마스터', 'wkaqhd123@naver.com',
-1112277777, '중식', '삼룡각', 0521114444, '중구', '얼큰한 짬뽕이 주메뉴입니다.', NULL);
+'1112277777', '중식', '삼룡각', '0521114444', '중구', '얼큰한 짬뽕이 주메뉴입니다.', NULL);
 
 INSERT INTO Member (mem_type, mem_id, mem_password, mem_name, mem_nickname, mem_email,
 mem_businessnumber, mem_food_category, mem_store_name, mem_store_phonenumber, mem_location, mem_introduce,
 mem_sns)
 VALUES ('owner', 'akzkfhd123', '@pwakzkfhd123', '최점주', '디저트마스터', 'akzkfhd123@gmail.com',
-1112299999, '카페/디저트', '한입마카롱', 0521115555, '북구', '우리 가게만의 특별한 뚱카롱 있습니다^^', 'https://www.instagram.com/onedessert/');
+'1112299999', '카페/디저트', '한입마카롱', '0521115555', '북구', '우리 가게만의 특별한 뚱카롱 있습니다^^', 'https://www.instagram.com/onedessert/');
 
 --회원조회 쿼리 (이름으로 아이디 찾기)
 SELECT mem_id "이름으로 조회한 아이디"
@@ -282,7 +282,7 @@ INSERT INTO Member (mem_type, mem_id, mem_password, mem_name, mem_nickname, mem_
 mem_businessnumber, mem_food_category, mem_store_name, mem_store_phonenumber, mem_location, mem_introduce,
 mem_sns)
 VALUES ('owner', 'qpxmska123', '@pwqpxmska123', '박점주', '쌀국수마스터', 'qpxmska123@naver.com',
-1113311111, '아시안식', '후루룩쌀국수', 0521116666, '울주군', '쌀국수가 최고로 맛있고 분짜도 맛있어요~', 'https://www.instagram.com/bestasiannoodle/');
+'1113311111', '아시안식', '후루룩쌀국수', '0521116666', '울주군', '쌀국수가 최고로 맛있고 분짜도 맛있어요~', 'https://www.instagram.com/bestasiannoodle/');
 
 --아이디 찾기
 SELECT mem_id "찾기 완료한 아이디"
