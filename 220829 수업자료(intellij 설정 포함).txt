@@ -39,9 +39,9 @@
 	http://localhost:9080/x?name=gildong@age=30
 	
 	payload 전달 방식
-	1. 쿼리 파라미터	(요청메세지 헤더)
+	1. 쿼리 파라미터
     http://localhost:9080/y?op1=10&op2=20
-	2. url 경로에 포함	(요청메세지 헤더)
+	2. url 경로에 포함
 	http://localhost:9080/y/10/20
 	3. 요청메세지 바디에 포함	(요청메세지 바디)
 	
@@ -50,7 +50,7 @@
 	2. json(data)
 	
 
-- form 태그 안의 button 태그는 자동으로 submit 타입
+- form태그 안의 button태그는 자동으로 submit 타입
 - form action의 디폴트값은 현재 요청 url
 	
 	
