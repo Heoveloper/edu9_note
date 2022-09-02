@@ -1,0 +1,40 @@
+ThymeLeaf
+
+0. 기본 특징
+	내추럴 템플릿: 기본 html문서를 훼손하지 않고 html속성, 컨텐츠를 동적으로 변경
+	th:속성 적용범위(시작태그~종료태그)
+			재정의(html 템플릿 문서에서 존재하는 속성은 덮어쓰기, 존재하지 않는 속성은 추가)
+
+1. 변수선언
+	th:with
+	
+2. 조건문
+	case1)
+	th:if
+	th:unless
+	
+	case2)
+	th:switch, th:case
+	
+	case3)
+	${표현식} ? {true}
+	${표현식} ? {true} : {false}
+	${표현식} ?: 기본값
+	
+3. 반복문
+	th:each="ele, eleStat : ${collection|array}"
+	
+4. 타임리프 유일한 자체 태그
+	용도: html 태그 생성없이 그루핑
+	<th:block></th:block>
+	
+5. url링크
+	@{/product/{pid}/{count}(pid="컴퓨터", count="10")}
+	=>	/product/컴퓨터/10
+	@{/product/{pid}/{count}(pid="컴퓨터", count="10", price="1500000")}
+	=>	/product/컴퓨터/10?price="1500000"
+	
+6. 객체 멤버 접근
+	${person.name}
+	${person['name']}
+	${person.getName()}
