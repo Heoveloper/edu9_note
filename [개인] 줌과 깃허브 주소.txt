@@ -1,8 +1,10 @@
 줌
 https://us06web.zoom.us/j/6126314196?pwd=dXVIcTk5Z3NTM1EydHlLWVd4MnFWQT09
+회의 ID
+612 631 4196
 
 강사님 깃허브
 https://github.com/sang105kr
 
-자바 완전정복 저자 깃허브
+DO IT 자바 완전정복 저자 깃허브
 https://github.com/kimdh-hyw
