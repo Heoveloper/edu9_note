@@ -22,7 +22,12 @@ ThymeLeaf
 	${표현식} ?: 기본값
 	
 3. 반복문
+	1)요소 반복
 	th:each="ele, eleStat : ${collection|array}"
+	2)지정횟수 반복
+	th:each="count : ${#numbers.sequence(from, to, step)}"
+	th:each="count : ${#numbers.sequence(1, 10)}"
+	
 	
 4. 타임리프 유일한 자체 태그
 	용도: html 태그 생성없이 그루핑
@@ -31,10 +36,18 @@ ThymeLeaf
 5. url링크
 	@{/product/{pid}/{count}(pid="컴퓨터", count="10")}
 	=>	/product/컴퓨터/10
-	@{/product/{pid}/{count}(pid="컴퓨터", count="10", price="1500000")}
-	=>	/product/컴퓨터/10?price="1500000"
+	
+	url링크를 사용해 동적으로 만든 쿼리스트링
+	@{/product/{pid}/{count}(pid="컴퓨터", count="10", price="10000")}
+	=>	/product/컴퓨터/10?price="10000"
+	@{/product/{pid}/{count}(pid="컴퓨터", count="10", price="10000", desc="조립")}
+	=>	/product/컴퓨터/10?price="10000"&desc="조립"
 	
 6. 객체 멤버 접근
 	${person.name}
 	${person['name']}
 	${person.getName()}
+	
+	
+7. 문자열 템플릿
+	|hello ${변수표현식}|
