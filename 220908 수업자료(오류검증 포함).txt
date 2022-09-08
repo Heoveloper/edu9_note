@@ -49,4 +49,10 @@ NotBlank
 
 #.
 메소드 파라미터 안의 BindingResult는 form객체 바로 뒤에 따라와야 한다. (앞의 form객체 인식)
+
+#.
+레코드1 쿼리1 = queryForObject
+
+#.
+ctrl+shift+T = 테스트
 		
