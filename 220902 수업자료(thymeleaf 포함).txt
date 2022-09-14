@@ -65,12 +65,42 @@ ThymeLeaf
 9. 표현식
 ${}: 변수 표현식
 ${{}}: 포매팅 적용(이중 중괄호 사용)
+*{}: 선택 변수 표현식 (객체의 변수 표현식)
 @{}: URL링크 표현식
 #{}: 메세지 표현식
 #객체: 내장 객체
-
-*{}: 객체의 변수 표현식
+~{}: UI조각	//생략 가능
 ||: 리터럴 치환
 
-레코드1 쿼리1 = queryForObject
-ctrl+shift+T = 테스트
+10. 조각 정의
+	th:fragment="조각명"
+	
+11. 조각 참조
+	th:insert	현재 태그에 정의된 조각을 컨텐츠로 삽입
+	th:replace	현재 태그를 교체
+	th:include	현재 태그의 컨텐츠에 조각의 컨텐츠를 삽입(비권장)
+
+12. 조각 참조는 조각 표현식으로
+~{templatename :: selector}
+
+templatename: /templates 폴더 아래 경로명을 포함한 view 이름
+selector(선택자):	templatename파일 내의 선택자 참조
+				templatename이 없으면 현재 파일 내에서 참조
+selector(선택자)의 종류
+	1. th:fragment="조각명" or th:ref="조각명"
+	2. 태그명
+	3. .클래스명
+	4. #아이디값
+	/: 직계
+	//: 자손
+	x[@z="v"]: z가 v인 x엘리먼트
+	x[@z1="v1" and @z2="v2"]: z1이 v1이고 z2가 v2인 x엘리먼트
+	
+13. 조각 참조시 파라미터 의미
+	~{}(빈 조각): 렌더링하지 않음
+	_(no-operation): 참조할 조각의 디폴트값을 사용(기본 컨텐츠)
+	
+#.
+queryForObject: 레코드1에 쿼리1
+ctrl+shift+T: 테스트 파일 생성 단축키
+				
