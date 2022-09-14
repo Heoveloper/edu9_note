@@ -16,7 +16,8 @@ todolist 만들기 (교재 5장)
 백엔드 타임리프 2페이지 컨트롤러
 
 9월 21일(통합 구현)
-CSR (클라이언트 사이드 렌더링), REST API
+CSR (클라이언트 사이드 렌더링)
+AJAX, REST API
 JSON 상호응답
 VIEW단을 JavaScript로 작성해서 get, post 이외에도 다양한 메소드 사용
 
