@@ -5,7 +5,7 @@
 	"data": {
 		"pid": 1,
 		"pname": "컴퓨터",
-		"count": "10",
+		"quantity": "10",
 		"price": "1000000"
 	}
 }
@@ -18,7 +18,7 @@
 			{
 			"pid": 1,
 			"pname": "컴퓨터",
-			"count": "10",
+			"quantity": "10",
 			"price": "1000000"
 			},
 			..
@@ -30,14 +30,14 @@
 -등록
 	{
 		"pname": "컴퓨터",
-		"count": "10",
+		"quantity": "10",
 		"price": "1000000"
 	}
 
 -수정
 	{
 		"pname": "컴퓨터",
-		"count": "10",
+		"quantity": "10",
 		"price": "1000000"
 	}
 

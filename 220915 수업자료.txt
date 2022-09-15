@@ -1,0 +1,98 @@
+빈 등록
+1. 빈(bean)
+	스프링 컨테이너가 생명주기를 관리하는 자바객체
+	
+2. 자동 빈등록
+	@Component		//빈 등록(@Controller에 포함되어 있다.)
+	@Controller
+	@Service
+	@Repository
+	
+3. 빈참조 방법
+	@AutoWired
+	생성자 주입
+	필드 주입
+	세터 주입(setter 메소드)
+
+
+Java Object
+{
+	"name": "홍길동",
+	"age": 30
+}
+
+Set
+[
+    {
+        "name": "홍길동",
+        "age": 30
+    },
+    {
+        "name": "홍길순",
+        "age": 20
+    }
+]
+
+Map
+{
+    "1": {
+        "name": "홍길동",
+        "age": 30
+    },
+    "2": {
+        "name": "홍길순",
+        "age": 20
+    }
+}
+
+List
+[
+    {
+        "name": "홍길동",
+        "age": 30
+    },
+    {
+        "name": "홍길순",
+        "age": 20
+    }
+]
+
+
+Optional
+	정의: 요소를 최대 1개 갖는 컨테이너
+	이점: null반환 오류를 줄일 수 있는 api를 만들 수 있다.
+	
+가시성 반환타입 메소드명(매개변수타입 매개변수명...);
+class Person {
+	private String name;
+	public getName() {
+		return name;
+	}
+}
+
+//레퍼런스 타입 Person으로 메소드 정의
+public Person getPerson(int id);
+//레퍼런스 타입으로 정의한 메소드는 null값을 반환할 수도 있다.
+public Person getPerson(int id) {return null;}
+//반환값이 없는 메소드
+public void getPerson(int id);
+
+//if문 없이 person.getName()시 반환값이 null이면 널포인터익셉션
+Person person = getPerson(10);
+if(person != null) {
+	person.getName();
+}
+
+//Optional을 사용한 레퍼런스 타입으로 정의한 메소드는
+//반환값이 null일 수도 아닐 수도 있단 걸 나타내므로
+//그에 맞는 코드를 작성해서 널포인터익셉션을 줄일 수 있다.
+public Optional<Person> getPerson(int id);
+
+
+220915 수업내용
+1. REST API
+2. AJAX
+3. JSON
+4. TEST
+	-POSTMAN 사용
+	
