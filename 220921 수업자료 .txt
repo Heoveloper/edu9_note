@@ -1,0 +1,31 @@
+첨부파일
+
+1.	MultipartFile
+	-파일의 메타정보 추출
+	String getName();
+	String getOriginalFilename();
+	String getContentType();
+	boolean isEmpty();
+	
+	long getSize();
+	byte[] getBytes();
+	InputStream getInputStream();
+	default Resource getResource();
+	
+	-파일을 스토리지에 저장
+	void transferTo(File dest)
+	default void transferTo(Path dest)
+	
+2.	첨부파일 조회
+	-첨부파일 다운로드
+	-브라우저 렌더링(ex. 이미지)
+	
+3.	파일 첨부 뷰
+	<form enctype="multipart/form-data">
+	파일첨부 여러개
+	<input type="file" multiple>
+	
+4.	파일 저장
+	MultipartFile.transferTo()
+	//유일한 파일명 생성
+	UUID.randomUUID()
