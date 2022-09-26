@@ -1,0 +1,5 @@
+js 사용자정의 속성
+
+data-upload-file-id = 'xxxx';
+
+dataset.uploadFileId로 접근 가능
