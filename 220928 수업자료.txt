@@ -1,0 +1,10 @@
+@Component를 포함하고 있는 클래스는 자동으로 객체 생성
+(new라는 키워드로 일일이 생성하지 않아도 된다.)
+
+@Controller
+@Service
+@Repository
+@Configuration
+어노테이션은 @Component를 포함한다.
+
+Bean => 객체 => Spring Container가 관리하는 객체(생성~소멸까지)
