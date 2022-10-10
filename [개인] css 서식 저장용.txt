@@ -1,3 +1,0 @@
-document.querySelector('.msg #findId').innerHTML = res.data.findedId;
-
-<script defer th:src="@{/js/member/findId.js}"></script>
