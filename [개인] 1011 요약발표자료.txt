@@ -141,7 +141,6 @@ data access layer에서 sql결과를 객체에 매핑합니다.
 궁금한 점 있으시면 질문 조금 받아보겠습니다.
 --
 감사합니다. 3팀 허준혁이었습니다.
-playkixxx@gmail.com
 
 
 
